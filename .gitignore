@@ -3,3 +3,6 @@
 
 # local env files
 /backend/config/prodConfig.env
+
+#other git
+/backend/.git

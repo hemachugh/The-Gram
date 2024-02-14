@@ -200,7 +200,7 @@ const Inbox = () => {
             <div className="flex flex-col justify-between w-full sm:w-4/6">
               {/* header */}
               <div className="flex py-3 px-6 border-b items-center justify-between">
-                <Link to={`/${encodeURIComponent(friend.username)}`}>
+                <a href={`/${friend.username}`}>
                   <div className="flex gap-2 items-center">
                     <div className="w-8 h-8 relative">
                       <img
@@ -218,7 +218,7 @@ const Inbox = () => {
                       {friend.name}
                     </span>
                   </div>
-                </Link>
+                </a>
                 <svg
                   className="cursor-pointer"
                   aria-label="View Thread Details"
