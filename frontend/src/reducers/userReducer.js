@@ -3,6 +3,7 @@ import {
   ALL_USERS_REQUEST,
   ALL_USERS_SUCCESS,
   CLEAR_ERRORS,
+  CLEAR_MESSAGE,
   FOLLOW_USER_FAIL,
   FOLLOW_USER_REQUEST,
   FOLLOW_USER_RESET,
@@ -125,6 +126,11 @@ export const forgotPasswordReducer = (state = {}, { type, payload }) => {
       return {
         ...state,
         error: null,
+      };
+    case CLEAR_MESSAGE:
+      return {
+        ...state,
+        message: null,
       };
     default:
       return state;

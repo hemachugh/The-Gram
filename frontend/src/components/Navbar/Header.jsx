@@ -31,14 +31,14 @@ const Header = () => {
   }, [location]);
 
   return (
-    <nav className="fixed top-0 w-full border-b bg-white z-10">
+    <nav className="fixed top-0 w-full h-auto border-b bg-white z-10">
       {/* <!-- navbar container --> */}
       <div className="flex flex-row justify-between items-center py-2 px-3.5 sm:w-full sm:py-2 sm:px-4 md:w-full md:py-2 md:px-6 xl:w-4/6 xl:py-3 xl:px-8 mx-auto">
         {/* <!-- logo --> */}
         <Link to="/">
           <img
             draggable="false"
-            className="w-full h-full object-contain"
+            className="w-full h-auto object-contain"
             src={logo}
             alt=""
           />

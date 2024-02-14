@@ -34,10 +34,11 @@ function App() {
   const { isAuthenticated } = useSelector((state) => state.user);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      dispatch(loadUser());
-    }
+    // const token = localStorage.getItem("token");
+    // console.log(token);
+    // if (token) {
+    dispatch(loadUser());
+    // }
   }, [dispatch]);
 
   // always scroll to top on route/path change
@@ -54,11 +55,8 @@ function App() {
       {isAuthenticated && <Header />}
       <Suspense fallback={<SpinLoader />}>
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<SignUp />} />
-          <Route path="/password/forgot" element={<ForgotPassword />} />
-          <Route path="/password/reset/:token" element={<ResetPassword />} />
           <Route
+            exact
             path="/"
             element={
               <PrivateRoute>
@@ -66,6 +64,10 @@ function App() {
               </PrivateRoute>
             }
           />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<SignUp />} />
+          <Route path="/password/forgot" element={<ForgotPassword />} />
+          <Route path="/password/reset/:token" element={<ResetPassword />} />
 
           <Route
             path="/:username"

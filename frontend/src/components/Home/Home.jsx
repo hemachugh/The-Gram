@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar/Sidebar";
 import MetaData from "../Layouts/MetaData";
 
 const Home = () => {
+  console.log("Hello from Home.js");
   const uniqueKey = Date.now();
   return (
     <>

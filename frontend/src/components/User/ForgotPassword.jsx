@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import { Link } from "react-router-dom";
-import { clearErrors, forgotPassword } from "../../actions/userAction";
+import {
+  clearErrors,
+  forgotPassword,
+  clearMessage,
+} from "../../actions/userAction";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import BackdropLoader from "../Layouts/BackdropLoader";
@@ -28,6 +32,7 @@ const ForgotPassword = () => {
     }
     if (message) {
       toast.success(message);
+      dispatch(clearMessage());
     }
   }, [dispatch, error, message]);
 

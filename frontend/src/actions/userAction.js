@@ -3,6 +3,7 @@ import {
   ALL_USERS_REQUEST,
   ALL_USERS_SUCCESS,
   CLEAR_ERRORS,
+  CLEAR_MESSAGE,
   FOLLOW_USER_FAIL,
   FOLLOW_USER_REQUEST,
   FOLLOW_USER_SUCCESS,
@@ -51,6 +52,8 @@ export const loginUser = (userId, password) => async (dispatch) => {
       { userId, password },
       config
     );
+    // localStorage.setItem("token", data);
+    console.log("data =" + data.cookie);
 
     dispatch({
       type: LOGIN_USER_SUCCESS,
@@ -95,7 +98,7 @@ export const loadUser = () => async (dispatch) => {
     dispatch({ type: LOAD_USER_REQUEST });
 
     const { data } = await axios.get("/api/v1/me");
-
+    // console.log(data.response.cookie);
     dispatch({
       type: LOAD_USER_SUCCESS,
       payload: data.user,
@@ -315,4 +318,8 @@ export const updatePassword = (passwords) => async (dispatch) => {
 // Clear All Errors
 export const clearErrors = () => async (dispatch) => {
   dispatch({ type: CLEAR_ERRORS });
+};
+
+export const clearMessage = () => async (dispatch) => {
+  dispatch({ type: CLEAR_MESSAGE });
 };

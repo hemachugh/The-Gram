@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { getPostsOfFollowing } from "../../../actions/postAction";
 import { clearErrors, getSuggestedUsers } from "../../../actions/userAction";
-// import { POST_FOLLOWING_RESET } from "../../../constants/postConstants";
+import { POST_FOLLOWING_RESET } from "../../../constants/postConstants";
 import { FOLLOW_USER_RESET } from "../../../constants/userConstants";
 import SkeletonUserItem from "../../Layouts/SkeletonUserItem";
 import UserListItem from "./UserListItem";
@@ -36,8 +36,8 @@ const Sidebar = () => {
     }
     if (success) {
       toast.success(message);
-      // dispatch({ type: POST_FOLLOWING_RESET });
-      // dispatch(getPostsOfFollowing());
+      dispatch({ type: POST_FOLLOWING_RESET });
+      dispatch(getPostsOfFollowing());
       dispatch({ type: FOLLOW_USER_RESET });
     }
   }, [success, followError]);
